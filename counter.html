@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Counter</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Cooper Black;
+      background-color:orange ;
+    }
+
+    .container {
+      background: pink;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 60px;
+      margin-bottom: 30px;
+      color: #333;
+      }
+      button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: white;
+    }
+
+    button:first-of-type {
+      background-color: #4CAF50;
+    }
+
+    button:last-of-type {
+      background-color: #ff4d4d;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <h1 id="countValue"></h1>
+
+    <button onclick="increment()">Increment</button>
+    <button onclick="decrement()">Decrement</button>
+
+  </div>
+
+  <script>
+    var count = window.localStorage.getItem("count");
+
+    if (count == null) {
+      count = 0;
+      window.localStorage.setItem("count", count);
+    }
+
+    document.getElementById("countValue").innerText = count;
+
+    function increment() {
+      count = Number(count) + 1;
+      window.localStorage.setItem("count", count);
+      document.getElementById("countValue").innerText = count;
+    }
+
+    function decrement() {
+      count = Number(count) - 1;
+      window.localStorage.setItem("count", count);
+      document.getElementById("countValue").innerText = count;
+    }
+  </script>
+
+</body>
+</html>
